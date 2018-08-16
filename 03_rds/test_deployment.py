@@ -1,5 +1,5 @@
-from src.client_factory import RDSClient
-from src.rds import RDS
+from client_factory import RDSClient
+from rds import RDS
 
 def get_rds():
     rds_client = RDSClient().get_client()

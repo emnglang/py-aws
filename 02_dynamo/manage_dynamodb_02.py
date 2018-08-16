@@ -1,5 +1,6 @@
-from src.client_factory import DynamoDBClient
-from src.dynamodb import DynamoDB
+
+from client_factory import DynamoDBClient
+from dynamodb import DynamoDB
 
 def get_dynamodb():
     dynamodb_client = DynamoDBClient().get_client()

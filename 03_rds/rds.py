@@ -1,5 +1,5 @@
-from src.client_factory import EC2Client
-from src.ec2 import EC2
+from client_factory import EC2Client
+from ec2 import EC2
 
 RDS_DB_SUBNET_NAME = 'my-rds-subnet-group'
 

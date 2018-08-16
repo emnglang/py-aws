@@ -1,8 +1,10 @@
-from src.ec2.vpc import VPC
-from src.ec2.ec2 import EC2
-from src.client_locator import EC2Client
+
+from vpc import VPC
+from ec2 import EC2
+from client_locator import EC2Client
 
 def main():
+
     # Create a VPC
     ec2_client = EC2Client().get_client()
     vpc = VPC(ec2_client)
@@ -147,9 +149,9 @@ def terminate_instance():
 
 
 if __name__ == '__main__':
-    # main()
+    main()
     # describe_instances()
     # modify_instance()
     # stop_instance()
     # start_instance()
-    terminate_instance()
+    # terminate_instance()
