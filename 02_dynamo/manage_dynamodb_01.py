@@ -5,6 +5,7 @@ import json
 from botocore.exceptions import ClientError
 from boto3.dynamodb.conditions import Key, Attr
 
+
 def get_dynamodb_client():
     dynamodb = boto3.client("dynamodb", region_name="us-east-1", endpoint_url="http://localhost:8000")
     """ :type : pyboto3.dynamodb """
@@ -201,7 +202,7 @@ def query_movies_with_extra_conditions():
 def scan_whole_table_for_items():
     filter_expression = Key('year').between(1950, 1959)
     projection_expression = "#yr, title, info.rating"
-    ean = {"#yr": "year",}
+    ean = {"#yr": "year", }
 
     response = get_dynamodb_resource().Table("Movies").scan(
         FilterExpression=filter_expression,

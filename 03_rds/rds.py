@@ -3,6 +3,7 @@ from ec2 import EC2
 
 RDS_DB_SUBNET_NAME = 'my-rds-subnet-group'
 
+
 class RDS:
     def __init__(self, client):
         self._client = client
@@ -60,7 +61,6 @@ class RDS:
         )
 
     def restore_db_from_backup(self, db_identifier, db_snapshot_identifier):
-
         return self._client.restore_db_instance_from_db_snapshot(
             DBInstanceIdentifier=db_identifier,
             DBSnapshotIdentifier=db_snapshot_identifier
@@ -72,7 +72,6 @@ class RDS:
             DBInstanceIdentifier=db_identifier,
             SkipFinalSnapshot=True
         )
-
 
     def create_db_subnet_group(self):
         print("Creating RDS DB Subnet Group " + RDS_DB_SUBNET_NAME)

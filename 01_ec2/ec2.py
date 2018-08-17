@@ -1,4 +1,3 @@
-
 class EC2:
     def __init__(self, client):
         self._client = client

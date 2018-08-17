@@ -1,5 +1,6 @@
 RDS_SECURITY_GROUP_NAME = "my-rds-public-sg"
 
+
 class EC2:
     def __init__(self, client):
         self._client = client

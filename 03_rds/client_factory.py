@@ -1,5 +1,6 @@
 import boto3
 
+
 class ClientFactory:
     def __init__(self, client):
         self._client = boto3.client(client, region_name="us-east-1")
@@ -16,4 +17,3 @@ class RDSClient(ClientFactory):
 class EC2Client(ClientFactory):
     def __init__(self):
         super().__init__('ec2')
-

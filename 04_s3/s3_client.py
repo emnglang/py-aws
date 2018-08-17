@@ -1,4 +1,3 @@
-
 import boto3
 import uuid
 
@@ -48,4 +47,3 @@ for delete_response in delete_responses:
 
 print('\nDeleting the bucket.')
 bucket.delete()
-

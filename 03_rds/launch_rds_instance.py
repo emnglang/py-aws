@@ -5,6 +5,7 @@ rds_client = boto3.client("rds", region_name="us-east-1")
 
 RDS_DB_SUBNET_GROUP = "my-rds-db-subnet-group"
 
+
 def create_db_subnet_group():
     print("Creating RDS DB Subnet Group " + RDS_DB_SUBNET_GROUP)
     rds_client.create_db_subnet_group(

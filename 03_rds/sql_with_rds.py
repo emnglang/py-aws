@@ -4,11 +4,12 @@ import os
 
 DB_CONFIG_FILE = os.path.dirname(__file__) + '/database.ini'
 
+
 def config(filename=DB_CONFIG_FILE, section='postgresql'):
     # create a parser
     parser = ConfigParser()
 
-    #read the configuration
+    # read the configuration
     parser.read(filename)
 
     # get the section
@@ -20,6 +21,7 @@ def config(filename=DB_CONFIG_FILE, section='postgresql'):
     else:
         raise Exception('Section {0] not found in the {1} file', format(section, filename))
     return db
+
 
 def connect_to_rds():
     conn = None
@@ -50,6 +52,7 @@ def connect_to_rds():
         if conn is not None:
             conn.close()
             print('Database connection closed')
+
 
 def create_tables():
     # provide sql statements
@@ -88,8 +91,8 @@ def create_tables():
         if conn is not None:
             conn.close()
 
-def insert_vendor_list(user_list):
 
+def insert_vendor_list(user_list):
     sql = "INSERT INTO users(user_name) VALUES (%s)"
     conn = None
     try:
@@ -109,6 +112,7 @@ def insert_vendor_list(user_list):
     finally:
         if conn is not None:
             conn.close()
+
 
 def get_users():
     conn = None
@@ -130,6 +134,7 @@ def get_users():
     finally:
         if conn is not None:
             conn.close()
+
 
 def update_user(user_id, user_name):
     sql = """ UPDATE users
@@ -157,8 +162,8 @@ def update_user(user_id, user_name):
 
     return updated_rows
 
-def delete_user(user_id):
 
+def delete_user(user_id):
     conn = None
     rows_deleted = 0
     try:
@@ -178,6 +183,7 @@ def delete_user(user_id):
             conn.close()
     return rows_deleted
 
+
 if __name__ == '__main__':
     # connect_to_rds()
     # create_tables()
@@ -194,8 +200,8 @@ if __name__ == '__main__':
 
     get_users()
 
-    #response = update_user(1, 'Niyazi')
-    #print(response)
+    # response = update_user(1, 'Niyazi')
+    # print(response)
 
     delete_user(1)
 

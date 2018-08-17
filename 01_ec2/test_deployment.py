@@ -1,10 +1,9 @@
-
 from vpc import VPC
 from ec2 import EC2
 from client_locator import EC2Client
 
-def main():
 
+def main():
     # Create a VPC
     ec2_client = EC2Client().get_client()
     vpc = VPC(ec2_client)
@@ -72,7 +71,8 @@ def main():
     # Create a Security Group
     public_security_group_name = 'Boto3-Public-SG'
     public_security_group_description = 'Public Security Group for Public Subnet Internet Access'
-    public_security_group_response = ec2.create_security_group(public_security_group_name, public_security_group_description, vpc_id)
+    public_security_group_response = ec2.create_security_group(public_security_group_name,
+                                                               public_security_group_description, vpc_id)
 
     public_security_group_id = public_security_group_response['GroupId']
 
@@ -98,7 +98,8 @@ def main():
     # Adding another Security Group for Private EC2 Instance
     private_security_group_name = 'Boto3-Private-SG'
     private_security_group_description = 'Private Security Group for Private Subnet'
-    private_security_group_response = ec2.create_security_group(private_security_group_name, private_security_group_description, vpc_id)
+    private_security_group_response = ec2.create_security_group(private_security_group_name,
+                                                                private_security_group_description, vpc_id)
 
     private_security_group_id = private_security_group_response['GroupId']
 

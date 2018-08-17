@@ -1,11 +1,12 @@
-
 from client_factory import DynamoDBClient
 from dynamodb import DynamoDB
+
 
 def get_dynamodb():
     dynamodb_client = DynamoDBClient().get_client()
     dynamodb = DynamoDB(dynamodb_client)
     return dynamodb
+
 
 def create_dynamodb_table():
     dynamodb_client = DynamoDBClient().get_client()
